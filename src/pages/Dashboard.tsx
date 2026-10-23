@@ -7,6 +7,7 @@ import { Tag, type TagTone } from '../components/Tag'
 import { cx } from '../components/cx'
 import {
   assignment,
+  assignmentTitle,
   formatDate,
   klass,
   pastAssignments,
@@ -96,18 +97,18 @@ export default function Dashboard() {
   // Bar chart: one bar per assignment in the unit, 32px per rubric point (Figma scale).
   const bars = [
     ...[...pastAssignments].reverse().map((a, i) => ({
-      label: a.shortTitle,
+      label: a.fullTitle,
       value: a.average as number | null,
       note: '',
       opacity: i === 0 ? 0.8 : 0.9,
     })),
     {
-      label: assignment.shortTitle,
+      label: assignment.fullTitle,
       value: average,
       note: fullyGraded ? '' : '*',
       opacity: fullyGraded ? 1 : 0.2,
     },
-    ...upcomingAssignments.map((a) => ({ label: a.shortTitle, value: null, note: '', opacity: 1 })),
+    ...upcomingAssignments.map((a) => ({ label: a.fullTitle, value: null, note: '', opacity: 1 })),
   ]
 
   const nameOf = (id: string) => students.find((s) => s.id === id)?.name ?? id
@@ -251,7 +252,7 @@ export default function Dashboard() {
                 <div key={o.text} className="flex items-center gap-5 py-1.5">
                   <div className="flex min-w-[260px] shrink basis-[470px] flex-col">
                     <p className="text-base text-ink">{o.text}</p>
-                    <p className="text-xs text-n4">Assessed in {o.assessedIn}</p>
+                    <p className="text-xs text-n4">Assessed in {o.assessedIn.map(assignmentTitle).join(' · ')}</p>
                   </div>
                   <div
                     role="img"

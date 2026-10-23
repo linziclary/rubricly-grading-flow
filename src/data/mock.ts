@@ -155,6 +155,12 @@ export const pastAssignments = [
 
 export const upcomingAssignments = [{ id: '9-1-4', fullTitle: '9.1.4. Growth Goals', shortTitle: 'Growth Goals', dueDate: '2025-02-06' }]
 
+/** Full "9.1.x. Title" label for any assignment in the unit, so every reference reads the same. */
+export function assignmentTitle(id: string) {
+  const all = [assignment, ...pastAssignments, ...upcomingAssignments]
+  return all.find((a) => a.id === id)?.fullTitle ?? id
+}
+
 /**
  * Unit-level analytics that depend on history the prototype doesn't model
  * (attendance across units, per-objective sub-scores). Values come from the Figma dashboard.
@@ -170,10 +176,10 @@ export const unitAnalytics = {
     { studentId: 'ethan-park', note: 'Score dropped from 4 to 2', tag: 'Score drop', tone: 'info' as const },
   ],
   objectives: [
-    { text: 'Identify personal strengths and how to use them', assessedIn: '9.1.1, 9.1.2', percent: 82, average: 3.8, status: 'on_track' as const, live: false },
-    { text: 'Interpret the “why” behind their digital habits', assessedIn: '9.1.3', percent: 61, average: 3.2, status: 'in_progress' as const, live: true },
-    { text: 'Critique how their digital habits impact their lives', assessedIn: '9.1.3', percent: 44, average: 2.9, status: 'needs_support' as const, live: true },
-    { text: 'Set a realistic personal growth goal', assessedIn: '9.1.4', percent: null, average: null, status: 'upcoming' as const, live: false },
+    { text: 'Identify personal strengths and how to use them', assessedIn: ['9-1-1', '9-1-2'], percent: 82, average: 3.8, status: 'on_track' as const, live: false },
+    { text: 'Interpret the “why” behind their digital habits', assessedIn: ['9-1-3'], percent: 61, average: 3.2, status: 'in_progress' as const, live: true },
+    { text: 'Critique how their digital habits impact their lives', assessedIn: ['9-1-3'], percent: 44, average: 2.9, status: 'needs_support' as const, live: true },
+    { text: 'Set a realistic personal growth goal', assessedIn: ['9-1-4'], percent: null, average: null, status: 'upcoming' as const, live: false },
   ],
 }
 
