@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* Design tokens pulled from the Dialect variables in Figma (file ntDqh2nyQIYFufImb9az6R). */
+@theme {
+  --font-sans: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
+
+  /* Brand */
+  --color-primary: #e86c00;
+  --color-primary-tint: #fff4eb;
+  --color-logo-1: #fae2cc;
+  --color-logo-2: #f6c499;
+  --color-logo-3: #f1a766;
+  --color-logo-4: #ed8933;
+  --color-accent: #e9ad8c;
+
+  /* Neutrals */
+  --color-ink: #272833;
+  --color-black: #09101d;
+  --color-n2: #394452;
+  --color-n3: #545d69;
+  --color-n4: #6d7580;
+  --color-n5: #858c94;
+  --color-n6: #a5abb3;
+  --color-n8: #ebeef2;
+  --color-border: #dadee3;
+  --color-action-neutral: #9098a1;
+  --color-page: #f7f5f4;
+  --color-surface-muted: #f4f6f9;
+  --color-track: #eaecf0;
+  --color-success-tint: #edf7ee;
+  --color-trend-up: #2e7d32;
+  --color-trend-down: #c62828;
+
+  /* Action + status */
+  --color-action-success: #19ab4f;
+  --color-success: #287d3c;
+  --color-info: #2e5aac;
+  --color-warning: #b95000;
+  --color-error: #da1414;
+
+  --shadow-elevation-2: 0 6.25px 20px 0 rgba(0, 0, 0, 0.13);
+  --shadow-page: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  --shadow-comment: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+
+  /* Type scale (Dialect "1200+" headings use -4% tracking) */
+  --text-f1: 48px;
+  --text-f1--line-height: 52px;
+  --text-f1--letter-spacing: -0.04em;
+  --text-section: 26px;
+  --text-section--line-height: 32px;
+  --text-f3: 33px;
+  --text-f3--line-height: 36px;
+  --text-f3--letter-spacing: -0.04em;
+  --text-f4: 28px;
+  --text-f4--line-height: 32px;
+  --text-f4--letter-spacing: -0.04em;
+  --text-f5: 23px;
+  --text-f5--line-height: 24px;
+  --text-f5--letter-spacing: -0.04em;
+  --text-f6: 19px;
+  --text-f6--line-height: 20px;
+  --text-f6--letter-spacing: -0.04em;
+  --text-base: 16px;
+  --text-base--line-height: 24px;
+  --text-sm: 14px;
+  --text-sm--line-height: 20px;
+  --text-xs: 13px;
+  --text-xs--line-height: 20px;
+  --text-2xs: 12px;
+  --text-2xs--line-height: 1.4;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    @apply bg-page font-sans text-ink antialiased;
+  }
+  button {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+  @keyframes toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes sheet-in {
+    from {
+      transform: translateX(24px);
+      opacity: 0;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 1ms !important;
+      transition-duration: 1ms !important;
+    }
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
