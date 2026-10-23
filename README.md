@@ -18,7 +18,7 @@ Open http://localhost:5173. Designed at 1440px wide and checked from 1280px to 1
 | `/` | 01 Dashboard |
 | `/assignments/9-1-3` | 02 Assignment roster (and 05 after submit) |
 | `/assignments/9-1-3/grade/:studentId` | 03 Grading page (04 submit modal opens here) |
-| `/assignments` | Placeholder list behind "All assignments" |
+| `/assignments` | Placeholder list behind "My assignments" |
 | `/components` | Base components (Dialect building blocks) |
 
 **Reset demo:** click the avatar at the bottom of the side nav → **Reset demo**. This clears saved drafts and grades.
@@ -37,7 +37,7 @@ Start from a clean state (avatar → Reset demo). The path shows every state.
    - Click **✦ Draft with AI**. The feedback types itself in, and the count updates. **↺ Undo AI draft** restores what was there.
 4. **Submit.** Click **Submit grade** → the confirmation shows the score and the full comment. Click **Submit & next student**.
 5. **Next student.** Aiden Brooks opens (*Student 1 of 11*) with the toast *✓ Grade submitted for Maya Chen · 3 – Satisfactory*.
-6. **Back to roster.** Click the back arrow. Maya's row is highlighted as **Graded · 3 – Satisfactory**. Counts update: Graded 7, In progress 0, average 3.4. The toast offers **Undo** and **Grade next: Aiden Brooks**.
+6. **Back to roster.** Click the back arrow. Maya's row now shows **Graded · 3 – Satisfactory**. Counts update: Graded 7, In progress 0, average 3.4. The toast offers **Undo** and **Grade next: Aiden Brooks**.
 7. **Undo.** Click **Undo**. Maya returns to *In progress* with her draft intact, and every count reverts. Back on the dashboard, the 9.1.3 tag and **To grade** match.
 
 Also try: **Save & exit**, then reload the page — the draft (score and feedback) is still there.

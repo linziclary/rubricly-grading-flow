@@ -27,7 +27,6 @@
   --color-page: #f7f5f4;
   --color-surface-muted: #f4f6f9;
   --color-track: #eaecf0;
-  --color-success-tint: #edf7ee;
   --color-trend-up: #2e7d32;
   --color-trend-down: #c62828;
 
@@ -37,29 +36,33 @@
   --color-info: #2e5aac;
   --color-warning: #b95000;
   --color-error: #da1414;
+  --color-info-bg: #eef2fa;
+  --color-success-bg: #edf9f0;
+  --color-warning-bg: #fff4ec;
+  --color-error-bg: #feefef;
 
   --shadow-elevation-2: 0 6.25px 20px 0 rgba(0, 0, 0, 0.13);
   --shadow-page: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
   --shadow-comment: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
 
-  /* Type scale (Dialect "1200+" headings use -4% tracking) */
+  /* Type scale (Dialect "1200+" headings use -2% tracking) */
   --text-f1: 48px;
   --text-f1--line-height: 52px;
-  --text-f1--letter-spacing: -0.04em;
+  --text-f1--letter-spacing: -0.02em;
   --text-section: 26px;
   --text-section--line-height: 32px;
   --text-f3: 33px;
   --text-f3--line-height: 36px;
-  --text-f3--letter-spacing: -0.04em;
+  --text-f3--letter-spacing: -0.02em;
   --text-f4: 28px;
   --text-f4--line-height: 32px;
-  --text-f4--letter-spacing: -0.04em;
+  --text-f4--letter-spacing: -0.02em;
   --text-f5: 23px;
   --text-f5--line-height: 24px;
-  --text-f5--letter-spacing: -0.04em;
+  --text-f5--letter-spacing: -0.02em;
   --text-f6: 19px;
   --text-f6--line-height: 20px;
-  --text-f6--letter-spacing: -0.04em;
+  --text-f6--letter-spacing: -0.02em;
   --text-base: 16px;
   --text-base--line-height: 24px;
   --text-sm: 14px;

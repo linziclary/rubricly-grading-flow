@@ -42,7 +42,7 @@ const sizes: Record<ButtonSize, { base: string; pad: string; padGhost: string }>
 export function Button({
   variant = 'filled',
   tone = 'primary',
-  size = 'md',
+  size = 'sm',
   className,
   type = 'button',
   ...rest

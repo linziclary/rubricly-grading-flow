@@ -24,7 +24,7 @@ export const gradePath = (studentId: string) => `/assignments/${assignment.id}/g
 
 export default function Roster() {
   const navigate = useNavigate()
-  const { rows, stats, lastSubmitted } = useGrading()
+  const { rows, stats } = useGrading()
   const [filter, setFilter] = useState<Filter>('all')
   const [rubricOpen, setRubricOpen] = useState(false)
 
@@ -63,7 +63,7 @@ export default function Roster() {
             )
           case 'graded':
             return (
-              <Button size="sm" variant="ghost" tone="success" onClick={() => navigate(gradePath(r.id))}>
+              <Button size="sm" variant="ghost" tone="neutral" onClick={() => navigate(gradePath(r.id))}>
                 Revise
               </Button>
             )
@@ -129,26 +129,28 @@ export default function Roster() {
           </Card>
         </div>
 
-        <div role="group" aria-label="Filter students" className="flex flex-wrap items-center gap-2">
-          {FILTERS.map((f) => (
-            <Tag
-              key={f.key}
-              tone={f.tone}
-              variant={filter === f.key ? 'filled' : 'outlined'}
-              pressed={filter === f.key}
-              onClick={() => setFilter(f.key)}
-            >
-              {`${f.label} · ${counts[f.key]}`}
-            </Tag>
-          ))}
-        </div>
-
         <Table
+          title="Student Submissions"
+          toolbar={
+            <div role="group" aria-label="Filter students" className="flex flex-wrap items-center justify-end gap-2">
+              {FILTERS.map((f) => (
+                <Tag
+                  key={f.key}
+                  tone={f.tone}
+                  variant={filter === f.key ? 'filled' : 'inverted'}
+                  pressed={filter === f.key}
+                  onClick={() => setFilter(f.key)}
+                >
+                  {`${f.label} · ${counts[f.key]}`}
+                </Tag>
+              ))}
+            </div>
+          }
+          divided
           columns={columns}
           rows={visible}
           rowKey={(r) => r.id}
           empty="No students match this filter."
-          highlightKey={lastSubmitted?.studentId}
         />
       </main>
 

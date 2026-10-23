@@ -24,11 +24,25 @@ type TableProps<T> = {
   rowHeight?: number
   empty?: ReactNode
   className?: string
-  /** Row to flash with the success tint (e.g. the row just graded). */
-  highlightKey?: string | null
+  /** Heading shown above the columns (e.g. "Student Submissions"). */
+  title?: ReactNode
+  /** Controls shown on the right of the title row (e.g. filter tags). */
+  toolbar?: ReactNode
+  /** Rule under the header and between rows. */
+  divided?: boolean
 }
 
-export function Table<T>({ columns, rows, rowKey, rowHeight = 64, empty, className, highlightKey }: TableProps<T>) {
+export function Table<T>({
+  columns,
+  rows,
+  rowKey,
+  rowHeight = 64,
+  empty,
+  className,
+  title,
+  toolbar,
+  divided,
+}: TableProps<T>) {
   // One grid owns the column tracks; every row is a subgrid of it, so header and
   // body cells always line up regardless of content.
   const template = columns
@@ -36,9 +50,21 @@ export function Table<T>({ columns, rows, rowKey, rowHeight = 64, empty, classNa
     .join(' ')
 
   return (
-    <div className={cx('w-full overflow-x-auto rounded-xl border border-border bg-white px-4 py-2', className)}>
+    <div
+      className={cx(
+        'flex w-full flex-col overflow-x-auto rounded-xl border border-border bg-white',
+        title || toolbar ? 'gap-4 p-4' : 'px-4 py-2',
+        className,
+      )}
+    >
+      {(title || toolbar) && (
+        <div className="flex items-center gap-4">
+          {title && <h2 className="min-w-0 flex-1 text-f5 font-semibold text-ink">{title}</h2>}
+          {toolbar}
+        </div>
+      )}
       <div role="table" className="grid w-full" style={{ gridTemplateColumns: template }}>
-        <div role="row" className="col-span-full grid grid-cols-subgrid">
+        <div role="row" className={cx('col-span-full grid grid-cols-subgrid', divided && 'border-b border-n6')}>
           {columns.map((c) => (
             <div
               key={c.key}
@@ -53,10 +79,7 @@ export function Table<T>({ columns, rows, rowKey, rowHeight = 64, empty, classNa
           <div
             key={rowKey(row)}
             role="row"
-            className={cx(
-              'col-span-full grid grid-cols-subgrid transition-colors duration-700',
-              highlightKey === rowKey(row) && 'bg-success-tint',
-            )}
+            className={cx('col-span-full grid grid-cols-subgrid', divided && 'border-b border-border last:border-b-0')}
           >
             {columns.map((c) => (
               <div

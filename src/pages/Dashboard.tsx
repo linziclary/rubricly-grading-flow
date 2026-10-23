@@ -131,8 +131,8 @@ export default function Dashboard() {
         <section className="flex flex-col gap-4">
           <div className="flex items-center justify-between pt-2">
             <h2 className="text-section font-semibold text-ink">Recent Assignments</h2>
-            <Button size="sm" variant="ghost" tone="neutral" className="whitespace-pre" onClick={() => navigate('/assignments')}>
-              {'All assignments  ›'}
+            <Button size="sm" variant="borderless" tone="neutral" className="whitespace-pre" onClick={() => navigate('/assignments')}>
+              {'My assignments  ›'}
             </Button>
           </div>
           <Table columns={columns} rows={recent} rowKey={(r) => r.id} className="p-2!" />

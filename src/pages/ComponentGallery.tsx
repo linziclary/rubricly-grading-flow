@@ -17,7 +17,7 @@ type Row = { name: string; submitted: string; status: ReactNode; score: string; 
 const rows: Row[] = [
   { name: 'Maya Chen', submitted: 'Jan 29, 2025', status: <Tag tone="warning">In progress</Tag>, score: '—', action: <Button size="sm">Resume grading</Button> },
   { name: 'Aiden Brooks', submitted: 'Jan 28, 2025', status: <Tag tone="info">Ready to grade</Tag>, score: '—', action: <Button size="sm">Grade</Button> },
-  { name: 'Jordan Ellis', submitted: 'Jan 27, 2025', status: <Tag tone="success">Graded</Tag>, score: '4 – Good', action: <Button size="sm" variant="ghost" tone="success">Revise</Button> },
+  { name: 'Jordan Ellis', submitted: 'Jan 27, 2025', status: <Tag tone="success">Graded</Tag>, score: '4 – Good', action: <Button size="sm" variant="ghost" tone="neutral">Revise</Button> },
 ]
 
 export default function ComponentGallery() {
@@ -57,7 +57,7 @@ export default function ComponentGallery() {
         </Section>
 
         <Section title="Tag">
-          {(['outlined', 'filled', 'plain'] as const).map((v) => (
+          {(['inverted', 'filled', 'plain'] as const).map((v) => (
             <div key={v} className="flex flex-wrap items-center gap-2">
               <span className="w-24 text-sm text-n4">{v}</span>
               {tagTones.map((t) => (
