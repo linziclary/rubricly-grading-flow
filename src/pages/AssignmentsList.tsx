@@ -22,7 +22,7 @@ export default function AssignmentsList() {
       <SideNav active="assignments" />
       <main className="flex min-w-0 flex-1 flex-col gap-6 pb-10 pl-9 pr-[50px] pt-10">
         <div className="flex flex-col gap-2">
-          <h1 className="text-f1 font-semibold text-ink">My Assignments</h1>
+          <h1 className="text-f2 font-semibold text-ink">My Assignments</h1>
           <p className="text-base text-n4">{klass.name} · Unit 9.1</p>
         </div>
         <Table

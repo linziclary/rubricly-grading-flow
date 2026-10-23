@@ -118,8 +118,8 @@ export default function Dashboard() {
       <main className="flex min-w-0 flex-1 flex-col gap-8 pb-10 pl-9 pr-[50px] pt-10">
         {/* Header */}
         <header className="flex items-start justify-between gap-6">
-          <div className="flex flex-col gap-2">
-            <h1 className="text-f1 font-semibold text-ink">Good morning, {teacher.name}</h1>
+          <div className="flex flex-col gap-1">
+            <h1 className="text-f2 font-semibold text-ink">Good morning, {teacher.name}</h1>
             <p className="whitespace-pre text-base text-n4">{`${klass.name}  ·  ${stats.total} students`}</p>
           </div>
           <Button variant="ghost" tone="success" aria-haspopup="listbox" className="whitespace-pre">

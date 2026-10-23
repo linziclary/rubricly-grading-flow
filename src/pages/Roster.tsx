@@ -93,7 +93,7 @@ export default function Roster() {
 
         <div className="flex items-center justify-between gap-6">
           <div className="flex flex-col gap-1">
-            <h1 className="text-f1 font-semibold text-ink">{assignment.fullTitle}</h1>
+            <h1 className="text-f2 font-semibold text-ink">{assignment.fullTitle}</h1>
             <p className="whitespace-pre text-base text-n4">
               {`${klass.name}  ·  Due ${formatDate(assignment.dueDate, 'long')}  ·  Workbook pages 1–${assignment.pages.length}`}
             </p>
