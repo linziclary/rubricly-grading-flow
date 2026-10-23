@@ -107,7 +107,8 @@ function GradeView({ studentId }: { studentId: string }) {
     : null
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    // Fixed to the visible viewport (dvh-safe) and clipped, so only the workbook and rubric panes scroll.
+    <div className="fixed inset-0 flex overflow-clip">
       <SideNav collapsed active="dashboard" />
       <div className="flex min-w-0 flex-1 flex-col">
         {/* Top bar */}

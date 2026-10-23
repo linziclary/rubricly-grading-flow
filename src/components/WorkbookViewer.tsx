@@ -35,7 +35,12 @@ export function WorkbookViewer({ onViewReasoning }: WorkbookViewerProps) {
 
   const goTo = (index: number) => {
     setActivePage(index)
-    pageRefs.current[index]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const root = scroller.current
+    const page = pageRefs.current[index]
+    if (!root || !page) return
+    const toolbar = root.firstElementChild as HTMLElement | null
+    const top = page.getBoundingClientRect().top - root.getBoundingClientRect().top + root.scrollTop
+    root.scrollTo({ top: top - (toolbar?.offsetHeight ?? 0) - 12, behavior: 'smooth' })
   }
 
   return (
@@ -86,7 +91,7 @@ export function WorkbookViewer({ onViewReasoning }: WorkbookViewerProps) {
               pageRefs.current[i] = el
             }}
             data-page={i}
-            className="relative shrink-0 scroll-mt-16 overflow-hidden rounded bg-white shadow-page"
+            className="relative shrink-0 overflow-hidden rounded bg-white shadow-page"
             style={{ width: PAGE_W * zoom, height: PAGE_H * zoom }}
           >
             <div

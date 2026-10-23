@@ -25,7 +25,7 @@ export function SideNav({ collapsed = false, active = 'dashboard' }: SideNavProp
     <nav
       aria-label="Main"
       className={cx(
-        'sticky top-0 flex h-screen shrink-0 flex-col border-r border-n8 bg-white',
+        'sticky top-0 flex h-dvh shrink-0 flex-col border-r border-n8 bg-white',
         collapsed ? 'w-16' : 'w-[216px]',
       )}
     >
